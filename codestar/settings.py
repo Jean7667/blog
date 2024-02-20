@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+#import os
+#import dj_database_url
+    #if os.path.isfile('env.py'):
+        #import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -74,12 +78,32 @@ WSGI_APPLICATION = 'codestar.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
+    # Use the local database settings
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'nabtjgst',
+            'USER': 'nabtjgst',
+            'PASSWORD': 'IxO2WQHiZ2OqtQYIud9_vueUOOjo43EU',
+            'HOST': 'trumpet.db.elephantsql.com',
+            'PORT': '5432',
+        }
     }
-}
+
+
+
+
+
+
+
 
 
 # Password validation
