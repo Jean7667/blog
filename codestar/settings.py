@@ -90,10 +90,10 @@ WSGI_APPLICATION = 'codestar.wsgi.application'
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': '',
-            'USER': '',
-            'PASSWORD': '',
-            'HOST': 'db.elep sql.com',
+            'NAME': 'nabtjgst',
+            'USER': 'nabtjgst',
+            'PASSWORD': 'IxO2WQHiZ2OqtQYIud9_vueUOOjo43EU',
+            'HOST': 'trumpet.db.elephantsql.com',
             'PORT': '5432',
         }
     }
