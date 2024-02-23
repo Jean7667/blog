@@ -18,11 +18,11 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
 
 # Meta class is used to specify the default ordering of records retrieved from the database for this model.
-class Meta:
-    ordering = ["-created_on"]
+    class Meta:
+        ordering = ["-created_on"]
 # remember self is convention for readability not a keyword
-def __str__(self):
-    return f"{self.title} | written by {self.author}"
+    def __str__(self):
+        return f"{self.title} | written by {self.author}"
     
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE,related_name="comments")
@@ -32,9 +32,9 @@ class Comment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
-class Meta:
+    class Meta:
         ordering = ["created_on"]
 # remember self is convention for readability not a keyword
-def __str__(self):
-    return f"Comment {self.body} by {self.name}"
+    def __str__(self):
+        return f"Comment {self.body} by {self.name}"
     
