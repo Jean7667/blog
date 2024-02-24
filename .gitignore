@@ -11,3 +11,4 @@ env.py
 settings.py
 codestar/settings.py
 blog/fixtures
+staticfiles
