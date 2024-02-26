@@ -19,7 +19,10 @@ from django.urls import path, include
 # from blog import views as blog_views - no need anymore as we have a urls for blog now
 
 urlpatterns = [
+    
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
+    path("accounts/", include("allauth.urls")),
+    path("about", include("about.urls"), name="about-urls"),
     path("", include("blog.urls"), name="blog-urls"),
 ]
