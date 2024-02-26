@@ -1,3 +1,11 @@
+"""register models with the admin interface
+
+@admin.register(Post) This is a decorator-based approach 
+
+
+
+"""
+
 from django.contrib import admin
 from .models import Post, Comment
 from django_summernote.admin import SummernoteModelAdmin
@@ -5,7 +13,7 @@ from django_summernote.admin import SummernoteModelAdmin
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
 
-    list_display = ('title', 'slug', 'status','created_on')
+    list_display = ('author','title','status','created_on','updated_on')
     search_fields = ['title','content']
     list_filter = ('status', 'created_on')
     prepopulated_fields = {'slug': ('title',)}
