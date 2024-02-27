@@ -26,6 +26,7 @@ class Post(models.Model):
     
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE,related_name="comments")
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="commenter")
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()
@@ -36,5 +37,5 @@ class Comment(models.Model):
         ordering = ["created_on"]
 # remember self is convention for readability not a keyword
     def __str__(self):
-        return f"Comment {self.body} by {self.name}"
+        return f"Comment {self.body} by {self.author}"
     
