@@ -20,5 +20,8 @@ class PostAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
 
 # Register your models here. make it visisble in the Django adm section
+#@admin.site.register(Comment)
 
-admin.site.register(Comment)
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('author','created_on','email','approved')
