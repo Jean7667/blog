@@ -12,6 +12,18 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+#
+cloudinary.config( 
+  cloud_name = "ddmkdcnby", 
+  api_key = "282894462379769", 
+  api_secret = "2skRE0vJeYEM5IcOeoHLvf1xFg4"
+)
+
+
 #import dj_database_url
     #if os.path.isfile('env.py'):
         #import env

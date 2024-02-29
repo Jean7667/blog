@@ -93,6 +93,7 @@ def comment_edit(request, slug, comment_id):
     ``comment_form``
         An instance of :form:`blog.CommentForm`
     """
+    print(comment_id, slug)
     if request.method == "POST":
 
         queryset = Post.objects.filter(status=1)
@@ -100,15 +101,14 @@ def comment_edit(request, slug, comment_id):
         comment = get_object_or_404(Comment, pk=comment_id)
         comment_form = CommentForm(data=request.POST, instance=comment)
 
-    if comment_form.is_valid() and comment.author == request.user:
+        if comment_form.is_valid() and comment.author == request.user:
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.approved = False
             comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
-    else:
-            messages.add_message(request, messages.ERROR,
-                                 'Error updating comment!')
+        else:
+            messages.add_message(request, messages.ERROR,'Error updating comment!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
@@ -132,7 +132,6 @@ def comment_delete(request, slug, comment_id):
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:
-        messages.add_message(request, messages.ERROR,
-                             'You can only delete your own comments!')
+        messages.add_message(request, messages.ERROR,'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
