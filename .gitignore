@@ -13,3 +13,4 @@ codestar/settings.py
 blog/fixtures
 staticfiles
 static/js/comments3.js
+.dot
